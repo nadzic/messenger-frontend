@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import { FC, ReactElement } from 'react';
+import { Provider as ReduxProvider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+
+import { Messenger } from './components/messenger';
+import { theme } from './constants';
+import { store } from './reducers/store';
+
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+require('dotenv').config()
+
+const App: FC = (): ReactElement =>
+  <ThemeProvider theme={theme}>
+    <ReduxProvider store={store}>
+      <Messenger />
+    </ReduxProvider>
+  </ThemeProvider>
 
 export default App;
