@@ -1,9 +1,8 @@
-# Email composer
+# Messenger
 
 ## Vercel hosted
 
 Will add soon.
-
 
 ## Install deps
 
