@@ -24,19 +24,24 @@ const Messages: FC = (): ReactElement => {
   const dispatch = useDispatch();
   const { messages } = useSelector((state: RootState) => state);
 
+  console.log("messages: ", messages);
+
   useEffect(() => {
+    console.log("we come one")
     SocketIOClient.on('message que',(initialMsgs: string) => {
+      console.log("initialMsgs: ", initialMsgs);
       dispatch(snapshotMessages(JSON.parse(initialMsgs)));
     });
     
     SocketIOClient.on('chat message',(msg: string)=>{
+      console.log("yeah it comes here");
       dispatch(addMessage(JSON.parse(msg)))
     })
 
     return () => {
       SocketIOClient.disconnect();
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <Container>
