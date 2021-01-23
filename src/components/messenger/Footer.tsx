@@ -34,12 +34,15 @@ const ImageEditImg = styled.img`
 `
 
 const SendButton = styled.button`
-  background: white;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   width: 26px;
   height: 26px;
   bottom: 15px;
-  right: 30px;
+  right: 25px;
   cursor: pointer;
   border: 0;
 `
